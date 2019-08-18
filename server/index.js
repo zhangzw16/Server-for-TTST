@@ -3,8 +3,8 @@ import Koa from 'koa';
 import logger from 'koa-logger';
 import mongoose from 'mongoose';
 import helmet from 'koa-helmet';
-import routing from './routes';
 import cors from 'koa2-cors';
+import routing from './routes';
 import { port, connexionString } from './config';
 
 mongoose.connect(connexionString, {dbName: 'kjfwd', useNewUrlParser: true});
