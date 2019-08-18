@@ -12,4 +12,6 @@ router.prefix(`/${baseApi}/${api}`);
 // POST /api/authenticate
 router.post('/', authenticate);
 
+router.post('/signup', authenticate)
+
 export default router;
