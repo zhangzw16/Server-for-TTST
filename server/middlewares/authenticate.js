@@ -1,7 +1,10 @@
 import jwt from 'jsonwebtoken';
+import User from '../models/user';
 
-export default ctx => {
-  if (ctx.request.body.password === 'password') {
+export default async ctx => {
+  const req = ctx.request.body;
+  const user = await User.findOne({username: req.username});
+  if (req.password === user.password) {
     ctx.status = 200;
     ctx.body = {
       token: jwt.sign(
