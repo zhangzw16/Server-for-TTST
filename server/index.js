@@ -4,6 +4,7 @@ import logger from 'koa-logger';
 import mongoose from 'mongoose';
 import helmet from 'koa-helmet';
 import routing from './routes';
+import cors from 'koa2-cors';
 import { port, connexionString } from './config';
 
 mongoose.connect(connexionString, {dbName: 'kjfwd', useNewUrlParser: true});
@@ -13,6 +14,7 @@ mongoose.connection.on('error', console.error);
 const app = new Koa();
 
 app
+  .use(cors())
   .use(logger())
   .use(bodyParser())
   .use(helmet());
