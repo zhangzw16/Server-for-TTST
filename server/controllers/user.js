@@ -11,7 +11,6 @@ class UserControllers {
    */
   async find(ctx) {
     ctx.body = await User.find();
-    console.log(User);
   }
 
   /**

@@ -17,4 +17,4 @@ const userSchema = new Schema({
   }
 });
 
-export default mongoose.model('kjfwd', userSchema, 'user');
+export default mongoose.model('user', userSchema, 'user');
