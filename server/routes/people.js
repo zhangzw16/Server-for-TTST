@@ -12,4 +12,6 @@ router.prefix(`/${baseApi}/${api}`);
 // GET /api/people
 router.get('/', PeopleControllers.find);
 
+router.post('/', PeopleControllers.add);
+
 export default router;
