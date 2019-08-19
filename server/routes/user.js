@@ -14,7 +14,6 @@ router.prefix(`/${baseApi}/${api}`);
 router.get('/', UserControllers.find);
 
 // POST /api/cities
-// This route is protected, call POST /api/authenticate to get the token
 router.post('/', UserControllers.register);
 
 // GET /api/cities/id
