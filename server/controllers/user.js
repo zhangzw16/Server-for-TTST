@@ -93,6 +93,7 @@ class UserControllers {
   async register(ctx) {
     try {
       const req = ctx.request.body;
+      console.log(req);
       const user = await User.findOne({username: req.username});
       if (user) {
         ctx.body = {
@@ -101,10 +102,14 @@ class UserControllers {
         };
         return;
       }
-      console.log('before hash');
+      
       const hash = await encrypt(req.password, saltTimes);
-      console.log(typeof hash);
-      const newUser = await new User({username: req.username, password: hash}).save(true);
+      const newUser = await new User({
+        username: req.username,
+        password: hash,
+        firstName: req.firstName,
+        lastName: req.lastName
+      }).save(true);
   
       if (newUser) {
         ctx.body = {
