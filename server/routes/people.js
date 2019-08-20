@@ -15,6 +15,9 @@ router.get('/', PeopleControllers.find);
 // POST /api/people
 router.post('/', PeopleControllers.add);
 
+// PUT /api/people/id
+router.put('/:id', PeopleControllers.update);
+
 // DELETE /api/people/id
 router.delete('/:id', PeopleControllers.delete);
 

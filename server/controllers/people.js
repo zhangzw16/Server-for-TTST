@@ -22,7 +22,30 @@ class PeopleControllers {
     }
   }
 
-    /**
+  /**
+   * Update a person
+   * @param {ctx} Koa Context 
+   */
+  async update(ctx) {
+    try {
+      const person = await People.findOneAndUpdate(
+        {学号: ctx.params.id},
+        ctx.request.body
+      );
+      if (!person) {
+        ctx.throw(404);
+      }
+      ctx.body = person;
+    } catch (err) {
+      console.error(err);
+      if (err.name === 'CastError' || err.name === 'NotFoundError') {
+        ctx.throw(404);
+      }
+      ctx.throw(500);
+    }
+  }
+
+  /**
    * Delete a person
    * @param {ctx} Koa Context
    */
