@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 
 const peopleSchema = new Schema({
 	学号: {
-		type: String,
+		type: Number,
 		unique: true,
 		required: true
 	},
