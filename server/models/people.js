@@ -44,6 +44,9 @@ const peopleSchema = new Schema({
 	},
 	备注: {
 		type: String
+	},
+	批次: {
+		type: Object
 	}
 });
 
