@@ -7,7 +7,11 @@ import cors from 'koa2-cors';
 import routing from './routes';
 import { port, connexionString } from './config';
 
-mongoose.connect(connexionString, {dbName: 'kjfwd', useNewUrlParser: true});
+// db settings
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.connect(connexionString, {dbName: 'kjfwd'});
 mongoose.connection.on('error', console.error);
 
 // Create Koa Application
