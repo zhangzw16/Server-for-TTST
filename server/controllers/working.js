@@ -36,6 +36,7 @@ class WorkingControllers {
       if (!working) {
         ctx.throw(404);
       }
+      console.log(working);
       ctx.body = working;
     } catch (err) {
       if (err.name === 'CastError' || err.name === 'NotFoundError') {

@@ -15,6 +15,11 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  studentID: {
+    type: Number,
+    required: true,
+    unique: true
+  },
   firstName: {
     type: String,
     required: true

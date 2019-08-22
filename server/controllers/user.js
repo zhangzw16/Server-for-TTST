@@ -107,10 +107,12 @@ class UserControllers {
       const newUser = await new User({
         username: req.username,
         password: hash,
+        studentID: req.studentID,
         firstName: req.firstName,
         lastName: req.lastName
       }).save(true);
-  
+      console.log(newUser);
+        
       if (newUser) {
         ctx.body = {
           code: 1,

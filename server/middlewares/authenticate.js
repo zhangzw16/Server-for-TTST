@@ -14,7 +14,8 @@ export default async ctx => {
         },
         'YourKey'
       ), // Store this key in an environment variable
-      message: 'Successful Authentication'
+      message: 'Successful Authentication',
+      studentID: user.studentID
     };
   } else {
     ctx.status = 401;

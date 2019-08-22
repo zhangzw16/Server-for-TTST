@@ -14,11 +14,19 @@ mongoose.set('useCreateIndex', true);
 mongoose.connect(connexionString, {dbName: 'kjfwd'});
 mongoose.connection.on('error', console.error);
 
+const corsConfig = {
+  origin: '*'
+  // exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+  // credentials: true,
+  // allowMethods: ['GET', 'POST', 'DELETE', 'PUT'],
+  // allowHeaders: ['Content-Type', 'Authorization', 'Accept']
+}
+
 // Create Koa Application
 const app = new Koa();
 
 app
-  .use(cors())
+  .use(cors(corsConfig))
   .use(logger())
   .use(bodyParser())
   .use(helmet());
@@ -26,7 +34,7 @@ app
 routing(app);
 
 // Start the application
-app.listen(port, () =>
+app.listen(port, '0.0.0.0', () =>
   console.log(`✅  The server is running at http://localhost:${port}/`)
 );
 export default app;
