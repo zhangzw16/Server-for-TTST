@@ -29,14 +29,22 @@ class WorkingControllers {
    */
   async findById(ctx) {
     try {
-      const working = await Working.findOne({
+      let working = await Working.findOne({
         week: ctx.query.week,
-        studentID: ctx.params.id
+        studentID: ctx.params.id,
+        confirm: true
       });
       if (!working) {
-        ctx.throw(404);
+        working = await Working.findOne({
+          week: ctx.query.week,
+          studentID: ctx.params.id,
+          confirm: false
+        });
+        if (!working) {
+          ctx.throw(404);
+        }
       }
-      console.log(working);
+      // console.log(working);
       ctx.body = working;
     } catch (err) {
       if (err.name === 'CastError' || err.name === 'NotFoundError') {
