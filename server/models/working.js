@@ -17,6 +17,16 @@ const workingSchema = new Schema({
     type: Number,
     required: true
   },
+  comment: {
+    type: String
+  },
+  operatorSID: {
+    type: Number
+  },
+  confirm: {
+    type: Boolean,
+    required: true
+  },
   workingHours: {
     Day1: {
       type: SchemaTypes.Double,
@@ -79,6 +89,6 @@ const workingSchema = new Schema({
   }
 });
 
-workingSchema.index({ week: 1, studentID: 1}, { unique: true });
+workingSchema.index({ week: 1, studentID: 1, confirm: 1}, { unique: true });
 
 export default mongoose.model('working', workingSchema, 'working');
