@@ -43,7 +43,7 @@
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "koa2-cors": "^2.0.6",
-    "mongoose": "^5.6.4",
+    "mongoose": "^5.7.5",
     "mongoose-double": "^0.0.1",
     "validator": "^11.1.0"
   },
